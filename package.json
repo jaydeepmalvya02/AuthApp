@@ -2,10 +2,16 @@
   "name": "authapp",
   "version": "1.0.0",
   "description": "My Auth App",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev":"nodemon api/index.js",
+    "start":"node api/index.js"
   },
   "author": "Jaydeep Malvya",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9"
+  }
 }
