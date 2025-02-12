@@ -3,7 +3,8 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoutes from './routes/user.route.js'
 import authRoutes from './routes/auth.route.js';
-import cors from 'cors'
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 mongoose.connect(process.env.MONGO)
@@ -14,6 +15,7 @@ const app=express();
 app.use(express.json());
 
 app.use(cors())
+app.use(cookieParser());
 app.listen(3000,()=>{
   console.log("Server started at port 3000");
 })
