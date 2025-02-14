@@ -36,3 +36,14 @@ export const updateUser=async(req,res,next)=>{
     
   }
 }
+export const deleteUser=async(req,res,next)=>{
+  if (req.user.id!==req.params.id){
+    return next(errorHandler(403,"You can delete only yout account"));
+  }
+  try {
+    const data=await User.findByIdAndDelete(req.params.id);
+    res.status(200).json("user has been deleted...")
+  } catch (error) {
+    next(errorHandler(401,"user not found"))
+  }
+}
